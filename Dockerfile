@@ -9,7 +9,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # User ustc sources
 RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \
-    sed -i 's/security.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+    sed -i 's/security.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \
+    ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 # Install Packages (basic tools, cups, basic drivers, HP drivers, python3 libs)
 RUN apt-get update && \
