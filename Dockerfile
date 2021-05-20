@@ -54,7 +54,7 @@ ADD root /
 RUN chmod +x /root/*
 
 # Baked-in config file changes
-RUN ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     sed -i 's/Listen localhost:631/Listen 0.0.0.0:631/' /etc/cups/cupsd.conf && \
     sed -i 's/Browsing Off/Browsing On/' /etc/cups/cupsd.conf && \
     sed -i 's/<Location \/>/<Location \/>\n    Allow All/' /etc/cups/cupsd.conf && \
