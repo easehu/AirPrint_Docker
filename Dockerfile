@@ -9,8 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # User ustc sources
 RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \
-    sed -i 's/security.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \
-    ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+    sed -i 's/security.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 
 # Install Packages (basic tools, cups, basic drivers, HP drivers, python3 libs)
 RUN apt-get update && \
@@ -55,7 +54,8 @@ ADD root /
 RUN chmod +x /root/*
 
 # Baked-in config file changes
-RUN sed -i 's/Listen localhost:631/Listen 0.0.0.0:631/' /etc/cups/cupsd.conf && \
+RUN ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    sed -i 's/Listen localhost:631/Listen 0.0.0.0:631/' /etc/cups/cupsd.conf && \
     sed -i 's/Browsing Off/Browsing On/' /etc/cups/cupsd.conf && \
     sed -i 's/<Location \/>/<Location \/>\n    Allow All/' /etc/cups/cupsd.conf && \
     sed -i 's/<Location \/admin>/<Location \/admin>\n    Allow All\n    Require user @SYSTEM/' /etc/cups/cupsd.conf && \
