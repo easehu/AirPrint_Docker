@@ -3,7 +3,7 @@
 This Debian:latest Docker image runs a CUPS instance that is meant as an AirPrint relay for printers that are already on the network but not AirPrint capable. I forked the original to use Debian instead of Ubuntu and work on more host OS's.
 
 ## Clone git source
-* `git source file to your system
+* git source file to your system
 ```
 git clone https://github.com/easehu/AirPrint_Docker.git
 ```
