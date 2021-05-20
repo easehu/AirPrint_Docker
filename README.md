@@ -2,8 +2,19 @@
 
 This Debian:latest Docker image runs a CUPS instance that is meant as an AirPrint relay for printers that are already on the network but not AirPrint capable. I forked the original to use Debian instead of Ubuntu and work on more host OS's.
 
-## Configuration
+## Clone git source
+* `git source file to your system
+```
+git clone https://github.com/easehu/AirPrint_Docker.git
+```
 
+## Build command:
+```
+cd AirPrint_Docker
+docker build -t debian:AirPrint .
+```
+
+## Configuration
 ### Volumes:
 * `/config`: where the persistent printer configs will be stored
 * `/services`: where the Avahi service files will be generated
