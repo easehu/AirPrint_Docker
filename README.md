@@ -35,5 +35,5 @@ docker run -itd --name AirPrint \
 
 * Make sure you select Share This Printer when configuring the printer in CUPS.
 
-* ***After configuring your printer, you need to close the web browser for at least 60 seconds. CUPS will not write the config files until it detects the connection is closed for as long as a minute.
+* ***After configuring your printer, you need to close the web browser for at least 60 seconds. CUPS will not write the config files until it detects the connection is closed for as long as a minute.***
 
